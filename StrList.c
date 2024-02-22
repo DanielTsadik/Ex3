@@ -105,19 +105,24 @@ void StrList_insertAt(StrList* StrList, const char* data, int index){
         return;
     }
     if(index == 0 || StrList-> _head == NULL){
+        // Inserting at the beginning of the list
+        newNode-> _next = StrList-> _head;
         StrList-> _head = newNode;
     }
     else{
         Node* current = StrList-> _head;
-        while(index != 0){
+        // Traverse the list to find the node just before the insertion point
+        while(index > 1){
             current = current-> _next;
             index--;
         }
+        // Insert the new node between current and current->next
         newNode-> _next = current-> _next;
         current-> _next = newNode; 
     }
     StrList-> _size++;
 }
+
 
 char* StrList_firstData(const StrList* StrList){
     if(StrList == NULL){

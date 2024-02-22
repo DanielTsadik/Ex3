@@ -42,11 +42,28 @@ void StrList_free(StrList* StrList){
     Node* next;
     while(current != NULL){
         next = current-> _next;
-        free(current-> _data);
-        free(current);
+        free(current-> _data); // Free memory allocated for data
+        free(current); // Free memory allocated for the node
         current = next;
     }
-    free(StrList);
+    free(StrList); // Free memory allocated for the list
+}
+
+void StrList_free11(StrList* StrList){
+    if(StrList == NULL){
+        return;
+    }
+    Node* current = StrList-> _head;
+    Node* next;
+    while(current != NULL){
+        next = current-> _next;
+        free(current-> _data); // Free memory allocated for data
+        free(current); // Free memory allocated for the node
+        current = next;
+    }
+    StrList->_head = NULL;
+    StrList->_size = 0;
+
 }
 
 size_t StrList_size(const StrList* StrList){
@@ -71,6 +88,7 @@ void StrList_insertLast(StrList* StrList, const char* data){
     }
     StrList-> _size++;
 }
+
 
 void StrList_insertAt(StrList* StrList, const char* data, int index){
     if(index < 0){
@@ -116,10 +134,13 @@ void StrList_print(const StrList* StrList){
     }
     Node* current = StrList-> _head;
     while(current != NULL){
-        printf("%s\n", current-> _data);
+        printf("%s ", current-> _data); // Print each word
         current = current-> _next;
     }
+    printf("\n"); // Add a newline after printing each sentence
 }
+
+
 
 void StrList_printAt(const StrList* Strlist, int index){
     if(Strlist == NULL){
@@ -180,6 +201,8 @@ void StrList_remove(StrList* StrList, const char* data){
             current = current -> _next;
             free(temp-> _data);
             free(temp);
+            StrList-> _size--; // Decrease the size of the list
+            return; // Exit the function after removing the node
         }
         else{
             prev = current;
@@ -187,6 +210,8 @@ void StrList_remove(StrList* StrList, const char* data){
         }
     }
 }
+
+
 
 void StrList_removeAt(StrList* StrList, int index){
     if(index < 0){
@@ -318,12 +343,3 @@ int StrList_isSorted(StrList* strList) {
     // If all comparisons passed without finding any unsorted pair, the list is sorted
     return 1;
 }
-
-
-
-
-
-
-
-
-

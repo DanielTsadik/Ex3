@@ -18,6 +18,7 @@ int main() {
                 StrList_insertLast(list, data);
             }
         }
+
         else if (num == 2) {
             int temp = 0;
             scanf("%d", &temp);
@@ -63,7 +64,7 @@ int main() {
             StrList_reverse(list);
         }
          else if (num == 11) {
-            StrList_free(list);
+            StrList_free11(list);
         }
          else if (num == 12) {
             StrList_sort(list);
@@ -78,6 +79,8 @@ int main() {
         }
         scanf("%d", &num); // Read next number for the next iteration
     }
-    free(list);
+    
+    StrList_free(list);
+    
     return 0;
 }

@@ -16,6 +16,7 @@ int main() {
                 char* data = (char*)malloc(sizeof(char) * 100);
                 scanf("%s", data);
                 StrList_insertLast(list, data);
+                free(data);
             }
         }
 

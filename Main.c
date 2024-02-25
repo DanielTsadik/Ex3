@@ -72,10 +72,10 @@ int main() {
         }
          else if (num == 13) {
             if (StrList_isSorted(list)) {
-                printf("true \n");
+                printf("true\n");
             } 
             else {
-                printf("false \n");
+                printf("false\n");
             }
         }
         scanf("%d", &num); // Read next number for the next iteration

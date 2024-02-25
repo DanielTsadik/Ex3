@@ -133,8 +133,9 @@ char* StrList_firstData(const StrList* StrList){
 }
 
 void StrList_print(const StrList* StrList){
-    if(StrList == NULL){
-        printf("The list is empty!");
+    if(StrList == NULL || StrList->_head == NULL){
+        // printf("The list is empty!");
+        printf("\n");
         return;
     }
     Node* current = StrList-> _head;

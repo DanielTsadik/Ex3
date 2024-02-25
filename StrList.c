@@ -71,7 +71,7 @@ size_t StrList_size(const StrList* StrList){
 }
 
 void StrList_insertLast(StrList* StrList, const char* data){
-    // Create a new node
+    // Create a new nodedfdfd
     Node* newNode = node_alloc(data, NULL);
     if(newNode == NULL){
         return;

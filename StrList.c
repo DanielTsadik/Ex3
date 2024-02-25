@@ -138,11 +138,11 @@ void StrList_print(const StrList* StrList){
         return;
     }
     Node* current = StrList-> _head;
-    while(current != NULL){
+    while(current->_next != NULL){
         printf("%s ", current-> _data); // Print each word
         current = current-> _next;
     }
-    printf("\n"); // Add a newline after printing each sentence
+    printf("%s\n",current->_data); // Add a newline after printing each sentence
 }
 
 
